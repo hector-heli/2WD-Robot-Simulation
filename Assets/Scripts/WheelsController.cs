@@ -17,10 +17,10 @@ public class WheelsController : MonoBehaviour
         float rotationVelocity = horizontalInput * maxVelocity/10;
 
         leftWheel.motorTorque = rotationVelocity;
-        leftWheel.transform.Rotate((Time.deltaTime * rotationVelocity*229),0,0);
+        leftWheel.transform.Rotate((Time.deltaTime * -rotationVelocity*229),0,0);
 
         rightWheel.motorTorque = rotationVelocity;
         rightWheel.transform.Rotate((Time.deltaTime * rotationVelocity*229),0,0);
-        Debug.Log(leftWheel.rpm);
+        // Debug.Log(leftWheel.rpm);
     }
 }
