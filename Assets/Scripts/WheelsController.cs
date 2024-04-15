@@ -6,21 +6,21 @@ public class WheelsController : MonoBehaviour
 {
     public WheelCollider leftWheel;
     public WheelCollider rightWheel;
-    public float maxVelocity = 10f;
-    public float spinForce = 10f;
+    public float maxVelocity = 1;
+    public float spinForce = 1;
 
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        float rotationVelocity = horizontalInput * maxVelocity/10;
+        int horizontalInput =(int) Input.GetAxis("Horizontal");
+        int verticalInput = (int) Input.GetAxis("Vertical");
+        float rotationVelocity = horizontalInput * maxVelocity/100;
 
         leftWheel.motorTorque = rotationVelocity;
-        leftWheel.transform.Rotate((Time.deltaTime * -rotationVelocity*229),0,0);
+        leftWheel.transform.Rotate((Time.deltaTime * rotationVelocity/360),0,0);
 
         rightWheel.motorTorque = rotationVelocity;
-        rightWheel.transform.Rotate((Time.deltaTime * rotationVelocity*229),0,0);
-        // Debug.Log(leftWheel.rpm);
+        rightWheel.transform.Rotate((Time.deltaTime * rotationVelocity/360),0,0);
+        Debug.Log(Time.deltaTime);
     }
 }
