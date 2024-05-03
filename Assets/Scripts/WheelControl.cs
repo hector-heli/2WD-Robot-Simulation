@@ -4,7 +4,8 @@ public class WheelControl : MonoBehaviour
 {
     public Transform wheelModel;
 
-    [HideInInspector] public WheelCollider WheelCollider;
+//    [HideInInspector] public WheelCollider WheelCollider;
+    public WheelCollider WheelCollider;
 
     // Create properties for the CarControl script
     // (You should enable/disable these via the 
@@ -27,7 +28,10 @@ public class WheelControl : MonoBehaviour
         // Get the Wheel collider's world pose values and
         // use them to set the wheel model's position and rotation
         WheelCollider.GetWorldPose(out position, out rotation);
-        wheelModel.transform.position = position;
+        // Debug.Log(rotation);
+        // wheelModel.transform.position = position;
         wheelModel.transform.rotation = rotation;
+
+        // wheelModel.transform.Rotate ((25 * Time.deltaTime), 0, 0 );
     }
 }

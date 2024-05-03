@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CarControl : MonoBehaviour
 {
-    public float motorTorque = 2000;
-    public float brakeTorque = 2000;
-    public float maxSpeed = 20;
-    public float steeringRange = 30;
+    public float motorTorque = 0.2f;
+    public float brakeTorque = 20;
+    public float maxSpeed = 0.2f;
+    public float steeringRange = 0;
     public float steeringRangeAtMaxSpeed = 10;
     public float centreOfGravityOffset = -1f;
 
@@ -39,6 +39,7 @@ public class CarControl : MonoBehaviour
         // Calculate how close the car is to top speed
         // as a number from zero to one
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
+        Debug.Log(speedFactor.ToString());
 
         // Use that to calculate how much torque is available 
         // (zero torque at top speed)
